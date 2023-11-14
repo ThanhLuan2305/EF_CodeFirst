@@ -1,0 +1,75 @@
+﻿@model EF_CodeFirst.Models.Product
+
+@{
+    ViewBag.Title = "Create"; }
+
+@using (Html.BeginForm("Create", "Products", new {area = "Admin"} , FormMethod.Post, new
+{
+    enctype = "multipart/dorm-data"
+}))
+{
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor(row => row.ProductName)
+            @Html.TextBoxFor(row => row.ProductName, new { @class = "form-control", placeholder = "Product Name" })
+            @Html.ValidationMessageFor(row => row.ProductName, "", new { @class = "text-danger" })
+        </div>
+        @*@Html.InputHelp("col-md-6", "Price", "Price")*@
+        <div class="col-md-6">
+            <label for="Price">Price</label>
+            @Html.TextBoxFor(row => row.Price, new { @class = "form-control", placeholder = "Price" })
+            @Html.ValidationMessageFor(row => row.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="DateOfPurchase">Date Of Purchase</label>
+            @Html.TextBoxFor(row => row.DateOfPurchase, new { @class = "form-control", placeholder = "Date Of Purchase" })
+            @Html.ValidationMessageFor(row => row.DateOfPurchase, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            <label for="AvailabilityStatus">Availability Status</label>
+            @Html.DropDownListFor(row => row.AvailabilityStatus, new List<SelectListItem>()
+       {
+           new SelectListItem() {Text="In Stock", Value="InStock"},
+           new SelectListItem() {Text="Out of Stock", Value="OutOfStock"}
+       }, "Please Select...", new { @class = "form-control" })
+            @Html.ValidationMessageFor(row => row.AvailabilityStatus, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="CategoryId">Category Id</label>
+            @Html.DropDownListFor(row => row.CategoryID, new SelectList(ViewBag.Categories, "CategoryID", "CategoryName"), "Select Category", new { @class = "form-control" })
+            @Html.ValidationMessageFor(row => row.CategoryID, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            <label for="BrandId">Brand Id</label>
+            @Html.DropDownListFor(row => row.BrandID, new SelectList(ViewBag.Brands, "BrandID", "BrandName"), "Select Brand", new { @class = "form-control" })
+            @Html.ValidationMessageFor(row => row.BrandID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="mx-3 form-check">
+            <input class="form-check-input"
+                   type="checkbox"
+                   id="Active"
+                   name="Active"
+                   value="true" />
+            <label class="form-check-label" for="Active">Active</label>
+            @Html.ValidationMessageFor(row => row.Active)
+        </div>
+    </div>
+    @Html.ValidationSummary()
+    <button type="submit" class="btn btn-success">Create</button>
+    <a href="/admin/products" class="btn btn-danger">Cancel</a>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

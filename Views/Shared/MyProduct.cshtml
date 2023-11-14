@@ -1,0 +1,15 @@
+﻿@model EF_CodeFirst.Models.Product
+
+<div class="col">
+    <div class="card">
+        <img src="https://picsum.photos/200" class="card-img-top" alt="@Model.ProductName" />
+        <div class="card-body">
+            <h5 class="card-title">@Model.ProductName</h5>
+            <p class="card-text">@Model.Price</p>
+            <p class="card-text">
+                <small class="text-muted">Category: @Model.Category.CategoryName</small>
+            </p>
+            <p class="card-text"><small class="text-muted">Brand: @Model.Brand.BrandName</small></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model List<EF_CodeFirst.Identity.AppUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>City</th>
+        <th>Date of birth</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.City</td>
+            <td>@item.Birthday</td>
+        </tr>
+    }
+</table>
+<h4>Số lượng user: @Model.Count()s</h4>

@@ -1,0 +1,54 @@
+﻿@model EF_CodeFirst.ViewModel.RegisterVM
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm("Register","Acount", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor(temp => temp.Username)
+            @Html.TextBoxFor(temp => temp.Username, new { placeholder = "Username", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Username,"", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(temp => temp.Email)
+            @Html.TextBoxFor(temp => temp.Email, new { placeholder = "Email", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(temp => temp.Password)
+            @Html.PasswordFor(temp => temp.Password, new { placeholder = "Password", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(temp => temp.ConfirmPassword)
+            @Html.PasswordFor(temp => temp.ConfirmPassword, new { placeholder = "Confirm Password", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(temp => temp.Mobile)
+            @Html.TextBoxFor(temp => temp.Mobile, new { placeholder = "Mobile", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Mobile, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(temp => temp.DateOfBirth)
+            @Html.TextBoxFor(temp => temp.DateOfBirth, new { placeholder = "Date Of Birth", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.DateOfBirth, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(temp => temp.Address)
+            @Html.TextBoxFor(temp => temp.Address, new { placeholder = "Address", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Address, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(temp => temp.City)
+            @Html.TextBoxFor(temp => temp.City, new { placeholder = "City", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.City, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Register</button>
+}
